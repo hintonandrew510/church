@@ -1,10 +1,10 @@
-package oorg.cokcc.christourkingcommunitychurch.model;
+package org.cokcc.model;
 
 /**
  * Created by LabUser on 4/10/2018.
  */
 
-public class Today
+public class Future
 {
     private String title;
 
@@ -18,4 +18,3 @@ public class Today
 
     public void setDoors(int doors) { this.doors = doors; }
 }
-

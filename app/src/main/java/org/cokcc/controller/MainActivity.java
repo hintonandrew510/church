@@ -1,4 +1,4 @@
-package oorg.cokcc.christourkingcommunitychurch.controller;
+package org.cokcc.controller;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
 
-import oorg.cokcc.christourkingcommunitychurch.R;
+import org.cokcc.R;
 
 public class MainActivity extends AppCompatActivity {
 

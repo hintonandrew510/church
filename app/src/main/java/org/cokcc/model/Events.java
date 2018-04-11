@@ -1,4 +1,4 @@
-package oorg.cokcc.christourkingcommunitychurch.model;
+package org.cokcc.model;
 
 import java.util.ArrayList;
 

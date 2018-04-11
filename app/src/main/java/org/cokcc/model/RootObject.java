@@ -1,4 +1,6 @@
-package oorg.cokcc.christourkingcommunitychurch.model;
+package org.cokcc.model;
+
+import org.cokcc.model.Events;
 
 /**
  * Created by LabUser on 4/10/2018.
