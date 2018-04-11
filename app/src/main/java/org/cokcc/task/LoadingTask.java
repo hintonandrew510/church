@@ -3,6 +3,9 @@ package org.cokcc.task;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ProgressBar;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
+import org.springframework.web.client.RestTemplate;
+import org.cokcc.model.RootObject;
 
 public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 
@@ -27,7 +30,23 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 
 	@Override
 	protected Integer doInBackground(String... params) {
-		Log.i("Tutorial", "Starting task with url: "+params[0]);
+		Log.d("Tutorial", "Starting task with url: "+params[0]);
+		RootObject rootObject;
+		try {
+			final String url = "http://cokcc.org/mobile/event.json";
+			RestTemplate restTemplate = new RestTemplate();
+			restTemplate.getMessageConverters().add(new MappingJackson2HttpMessageConverter());
+			rootObject= restTemplate.getForObject(url, RootObject.class);
+			Log.i("JSON", "got it: ");
+			if (rootObject != null) {
+				Log.i("JSON", "check in : " + rootObject.getEvents().getToday().get(0).getTitle());
+			}
+			int a = 7;
+			//return greeting;
+		} catch (Exception e) {
+			Log.e("MainActivity", e.getMessage(), e);
+		}
+
 		if(resourcesDontAlreadyExist()){
 			downloadResources();
 		}
