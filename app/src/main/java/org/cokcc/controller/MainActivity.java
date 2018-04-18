@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import org.cokcc.R;
 
+
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextMessage;
