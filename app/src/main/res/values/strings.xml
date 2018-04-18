@@ -3,10 +3,10 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="activity_splash_title_line_one">LOADING</string>
+    <string name="activity_splash_title_line_one">Loading</string>
 
-    <string name="activity_splash_title_line_two">SPLASH SCREEN</string>
+    <string name="activity_splash_title_line_two">Please wait</string>
 
-    <string name="activity_splash_title_line_three">TUTORIAL</string>
+    <string name="activity_splash_title_line_three">getting application dataL</string>
 
 </resources>
