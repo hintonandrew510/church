@@ -1,13 +1,19 @@
 package org.cokcc.task;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.os.SystemClock;
 import android.util.Log;
 import android.widget.ProgressBar;
+import android.widget.Toast;
+
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 import org.cokcc.model.RootObject;
 
 public class LoadingTask extends AsyncTask<String, Integer, Integer> {
+	int myProgress;
+	Context mContext;
 
 	public interface LoadingTaskFinishedListener {
 		void onTaskFinished(); // If you want to pass something back to the listener add a param to this method
@@ -23,15 +29,23 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 	 * @param progressBar - the progress bar you want to update while the task is in progress
 	 * @param finishedListener - the listener that will be told when this task is finished
 	 */
-	public LoadingTask(ProgressBar progressBar, LoadingTaskFinishedListener finishedListener) {
+	public LoadingTask(ProgressBar progressBar, LoadingTaskFinishedListener finishedListener,Context context) {
+		this.mContext = context;
 		this.progressBar = progressBar;
 		this.finishedListener = finishedListener;
 	}
+
+
 
 	@Override
 	protected Integer doInBackground(String... params) {
 		Log.d("Tutorial", "Starting task with url: "+params[0]);
 		RootObject rootObject;
+		while(myProgress<100){
+			myProgress++;
+			publishProgress(myProgress);
+			SystemClock.sleep(100);
+		}
 		try {
 			final String url = "http://cokcc.org/mobile/event.json";
 			RestTemplate restTemplate = new RestTemplate();
@@ -82,8 +96,18 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 	}
 
 	@Override
+	protected void onPreExecute() {
+		// TODO Auto-generated method stub
+		Toast.makeText(this.mContext,
+				"onPreExecute", Toast.LENGTH_LONG).show();
+		myProgress = 0;
+	}
+
+
+	@Override
 	protected void onPostExecute(Integer result) {
 		super.onPostExecute(result);
+		Toast.makeText(this.mContext,"onPostExecute", Toast.LENGTH_LONG).show();
 		finishedListener.onTaskFinished(); // Tell whoever was listening we have finished
 	}
 }
