@@ -47,9 +47,9 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 			Log.e("MainActivity", e.getMessage(), e);
 		}
 
-		if(resourcesDontAlreadyExist()){
-			downloadResources();
-		}
+		//if(resourcesDontAlreadyExist()){
+			//downloadResources();
+		//}
 		// Perhaps you want to return something to your post execute
 		return 1234;
 	}
