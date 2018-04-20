@@ -15,7 +15,7 @@ public class SplashActivity extends Activity implements LoadingTaskFinishedListe
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // Show the splash screen
-        setContentView(R.layout.activity_splash_2);
+        setContentView(R.layout.activity_main_relative);
         // Find the progress bar
         ProgressBar progressBar = (ProgressBar) findViewById(R.id.activity_splash_progress_bar);
         // Start your loading

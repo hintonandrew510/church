@@ -43,7 +43,8 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 		RootObject rootObject;
 		while(myProgress<100){
 			myProgress++;
-			publishProgress(myProgress);
+			this.progressBar.setProgress(myProgress);
+		//	publishProgress(myProgress);
 			SystemClock.sleep(100);
 		}
 		try {
@@ -92,7 +93,7 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 	@Override
 	protected void onProgressUpdate(Integer... values) {
 		super.onProgressUpdate(values);
-		progressBar.setProgress(values[0]); // This is ran on the UI thread so it is ok to update our progress bar ( a UI view ) here
+		this.progressBar.setProgress(values[0]); // This is ran on the UI thread so it is ok to update our progress bar ( a UI view ) here
 	}
 
 	@Override
