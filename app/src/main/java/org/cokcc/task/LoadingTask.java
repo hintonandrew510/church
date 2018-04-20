@@ -1,12 +1,15 @@
 package org.cokcc.task;
 
+import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.SystemClock;
 import android.util.Log;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import org.cokcc.R;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.web.client.RestTemplate;
 import org.cokcc.model.RootObject;
@@ -21,6 +24,7 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 
 	// This is the progress bar you want to update while the task is in progress
 	private final ProgressBar progressBar;
+	private final TextView mTextView;
 	// This is the listener that will be told when this task is finished
 	private final LoadingTaskFinishedListener finishedListener;
 
@@ -31,6 +35,10 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 	 */
 	public LoadingTask(ProgressBar progressBar, LoadingTaskFinishedListener finishedListener,Context context) {
 		this.mContext = context;
+		Activity activity = (Activity)context;
+		mTextView =(TextView) activity.findViewById(R.id.textView);;
+
+
 		this.progressBar = progressBar;
 		this.finishedListener = finishedListener;
 	}
