@@ -8,12 +8,20 @@ import android.view.MenuItem;
 import android.widget.TextView;
 
 import org.cokcc.R;
+import org.cokcc.task.LoadingTodayImage;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements LoadingTodayImage.LoadingTaskFinishedListener {
 
     private TextView mTextMessage;
+    // This is the callback for when your async task has finished
+    private void completeTask(){
 
+    }
+    @Override
+    public void onTaskFinished() {
+        completeTask();
+    }
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
 
@@ -42,6 +50,9 @@ public class MainActivity extends AppCompatActivity {
         mTextMessage = (TextView) findViewById(R.id.message);
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
+        new LoadingTodayImage(this, this).execute("www.google.co.uk"); // Pass in whatever you need
     }
 
 }

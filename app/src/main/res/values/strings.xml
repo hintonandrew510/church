@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Christ Our King Community Church</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Susan Koman Race for the Cure \n May 5, 2018</string>
+    <string name="today_description">April 8th - Raffle drawing\n
+April 24th - Race registration fee increases. Current fee is $30.\n
+Through April 8th - COKCC Race for the Cure t-shirts ($12)
+        are available for order before or after church.
+        Payment is due at time of order.</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
     <string name="activity_splash_title_line_one">Loading</string>

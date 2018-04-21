@@ -52,8 +52,9 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 		while(myProgress<100){
 			myProgress++;
 			this.progressBar.setProgress(myProgress);
+//			mTextView.setText(myProgress+"/"+progressBar.getMax());
 		//	publishProgress(myProgress);
-			SystemClock.sleep(100);
+			SystemClock.sleep(10);
 		}
 		try {
 			final String url = "http://cokcc.org/mobile/event.json";
@@ -67,7 +68,7 @@ public class LoadingTask extends AsyncTask<String, Integer, Integer> {
 			int a = 7;
 			//return greeting;
 		} catch (Exception e) {
-			Log.e("MainActivity", e.getMessage(), e);
+			Log.e("LoadingTask", e.getMessage(), e);
 		}
 
 		//if(resourcesDontAlreadyExist()){
